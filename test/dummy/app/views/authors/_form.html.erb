@@ -1,0 +1,12 @@
+<%= simple_form_for @author do |f| %>
+  <%= f.input :name %>
+  <%= f.input :country %>
+  <%= f.input :birthday %>
+
+  <%= f.fields_for :books do |b| %>
+    <%= render 'books', :f => b %>
+  <% end %>
+  <%= new_child_link 'Add book', f, :books %>
+
+  <%= f.button :submit %>
+<% end %>
